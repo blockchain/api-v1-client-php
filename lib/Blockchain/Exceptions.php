@@ -10,7 +10,7 @@ class Blockchain_CredentialsError extends Blockchain_Error {}
 function default_exception_handler(Exception $e){
           // show something to the users letting them know something's down
 			// hacky fix on maintanence downtime on Jan 21,2015
-          echo ("{\"status\":\"error\",\"message\":\"Something went wrong! Please try later.\"}");
+          echo ("{\"status\":\"error\",\"reason\":\"".substr($e->getMessage(), 0, 50).".\"}");
  }
  
  set_exception_handler("default_exception_handler");
