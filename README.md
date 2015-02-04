@@ -9,9 +9,8 @@ Getting Started
 
 Download the source or clone the repository. Copy the `lib/` folder into your project and add:
 ```php
-require('lib/Blockchain.php');
-
-$Blockchain = new Blockchain();
+require_once '../vendor/autoload.php';
+$Blockchain = new \Blockchain\Blockchain();
 ```
 
 All functionality is provided through the `Blockchain` object. 
@@ -21,7 +20,7 @@ All functionality is provided through the `Blockchain` object.
 The [official documentation](https://blockchain.info/api) lists API call limits, which may be bypassed with an API code. If you use a code, enter it when you create the `Blockchain` object:
 
 ```php
-$Blockchain = new Blockchain($my_api_code);
+$Blockchain = new \Blockchain\Blockchain($my_api_code);
 ```
 
 If you need an API code, you may request one [here](https://blockchain.info/api/api_create_code).
