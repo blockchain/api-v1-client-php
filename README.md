@@ -54,13 +54,13 @@ All Bitcoin values returned by the API are in string float format, in order to p
 $result = bcsub("101.234115", "34.92834753", 8); // "66.30576747"
 ```
 
-#####`bcmul` Add Two Numbers
+#####`bcmul` Multiply Two Numbers
 
 ```php
 $result = bcmul("101.234115", "34.92834753", 8); // "3535.940350613"
 ```
 
-#####`bcdiv` Add Two Numbers
+#####`bcdiv` Divide Two Numbers
 
 ```php
 $result = bcdiv("101.234115", "34.92834753", 8); // "2.89833679"
