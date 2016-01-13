@@ -105,7 +105,7 @@ class Blockchain {
         return $json;
     }
 
-    public function get($resource, $params=null) {
+    public function get($resource, $params=array()) {
         curl_setopt($this->ch, CURLOPT_POST, false);
 
         if(!is_null($this->api_code)) {

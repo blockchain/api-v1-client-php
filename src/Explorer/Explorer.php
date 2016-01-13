@@ -10,6 +10,11 @@ class Explorer {
         $this->blockchain = $blockchain;
     }
 
+    public function getBlockCount()
+    {
+        return $this->blockchain->get('q/getblockcount');
+    }
+
     public function getBlock($hash) {
         return new Block($this->blockchain->get('rawblock/' . $hash, array('format'=>'json')));
     }
