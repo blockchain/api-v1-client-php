@@ -1,0 +1,26 @@
+<?php
+session_start();
+$ID = "af0dfef6-20d8-47bf-8df5-6ffc7c4c98e5";
+$PW = "horsebatterystaple1";
+
+$address = $_SESSION['parseAddy'];
+
+$bal =json_decode(file_get_contents("https://blockchain.info/merchant/$ID/address_balance?password=$PW&address=$address&confirmations=0"), true);       
+
+$parseBal = $bal[balance];
+
+echo "The address<br>";
+echo $address;
+Echo "<br> Has a balance of <br>
+echo $parseBal;
+echo "satoshis";
+
+?>
+<html>
+<body>
+<br>
+<form action="checkB.php">
+<input type="submit" value="Check Balance">
+</form>
+</body>
+</html>
