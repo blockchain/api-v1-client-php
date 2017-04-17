@@ -9,7 +9,7 @@ $val = $Blockchain->Explorer->someFunc($param);
 ```
 
 
-###Blocks
+### Blocks
 
 Blocks may be queried in multiple ways: by the block hash, by the height in the blockchain, or by the block's index. Calls return `Block` objects. `getBlocksAtHeight` returns an array of `Block` objects.
 
@@ -20,7 +20,7 @@ $block = $Blockchain->Explorer->getBlockByIndex($index_int);
 ```
 
 
-###Transactions
+### Transactions
 Get a single transaction based on hash or index. Returns a `Transaction` object.
 
 ```php
@@ -29,7 +29,7 @@ $tx = $Blockchain->Explorer->getTransactionByIndex($index);
 ```
 
 
-###Addresses
+### Addresses
 Get the details of an address, including a paged list of transactions. Returns an `Address` object.
 
 ```php
@@ -39,7 +39,7 @@ $address = $Blockchain->Explorer->getAddress($address, $limit, $offset);
 ```
 
 
-###Unspent Outputs
+### Unspent Outputs
 Get an array of `UnspentOutput` objects for a given address.
 
 ```php
@@ -47,7 +47,7 @@ $unspent = $Blockchain->Explorer->getUnspentOutputs($address);
 ```
 
 
-###Latest Block
+### Latest Block
 Get the latest block on the main chain. Returns a simpler `LatestBlock` object;
 
 ```php
@@ -55,7 +55,7 @@ $latest = $Blockchain->Explorer->getLatestBlock();
 ```
 
 
-###Unconfirmed Transactions
+### Unconfirmed Transactions
 Get a list of unconfirmed transactions. Returns an array of `Transaction` objects.
 
 ```php
@@ -63,7 +63,7 @@ $unconfirmed = $Blockchain->Explorer->getUnconfirmedTransactions();
 ```
 
 
-###Simple Blocks
+### Simple Blocks
 Get blocks from a particular day or from a given mining pool. Return arrays of `SimpleBlock` objects.
 
 ```php
@@ -73,7 +73,7 @@ $simple_blocks = $Blockchain->Explorer->getBlocksByPool($pool_name);
 For a list of mining pool names, visit [this page](https://blockchain.info/pools).
 
 
-###Inventory Data
+### Inventory Data
 Gets data for recent blockchain entities, up to one hour old. Returns an `InventoryData` object.
 
 ```php
@@ -86,7 +86,7 @@ Return Objects
 
 Calls to the API return first-class objects.
 
-###Block
+### Block
 
 ```php
 class Block {
@@ -109,7 +109,7 @@ class Block {
 }
 ```
 
-###Transaction
+### Transaction
 ```php
 class Transaction {
     public $double_spend = false;       // bool

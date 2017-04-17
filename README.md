@@ -32,7 +32,7 @@ $Blockchain->setServiceUrl('http://localhost:3000');
 
 All functionality is provided through the `Blockchain` object. 
 
-###Call Limits
+### Call Limits
 
 The [official documentation](https://blockchain.info/api) lists API call limits, which may be bypassed with an API code. If you use a code, enter it when you create the `Blockchain` object:
 
@@ -42,7 +42,7 @@ $Blockchain = new \Blockchain\Blockchain('http://localhost:3000', $my_api_code);
 
 If you need an API code, you may request one [here](https://blockchain.info/api/api_create_code).
 
-###Network Timeouts
+### Network Timeouts
 
 Set the `cURL` timeout, in seconds, with the `setTimeout` member function:
 
@@ -58,25 +58,25 @@ A Note about Bitcoin Values
 
 All Bitcoin values returned by the API are in string float format, in order to preserve full value precision. It is recommended that all arithmetic operations performed on Bitcoin values within PHP utilize the `bcmath` functions as follows:
 
-#####`bcadd` Add Two Numbers
+##### `bcadd` Add Two Numbers
 
  ```php
  $result = bcadd("101.234115", "34.92834753", 8); // "136.16246253"
  ```
 
-#####`bcsub` Subtract Two Numbers
+##### `bcsub` Subtract Two Numbers
 
 ```php
 $result = bcsub("101.234115", "34.92834753", 8); // "66.30576747"
 ```
 
-#####`bcmul` Multiply Two Numbers
+##### `bcmul` Multiply Two Numbers
 
 ```php
 $result = bcmul("101.234115", "34.92834753", 8); // "3535.940350613"
 ```
 
-#####`bcdiv` Divide Two Numbers
+##### `bcdiv` Divide Two Numbers
 
 ```php
 $result = bcdiv("101.234115", "34.92834753", 8); // "2.89833679"
