@@ -23,7 +23,7 @@ $Blockchain->Wallet->credentials('wallet-id-2', 'password-2', 'optional 2nd pass
 // ...
 ```
 
-###A Note About Bitcoin Values
+### A Note About Bitcoin Values
 
 Values returned by this API are `string` representations of the floating point Bitcoin value, with 8 decimal places of precision, like this: `"105.62774000"`.
 
@@ -32,7 +32,7 @@ Functions that send Bitcoin accept `float` and `string` Bitcoin amounts, NOT Sat
 Read more about string values on the [main documentation](../README.md).
 
 
-###Get Current Identifier
+### Get Current Identifier
 Use the `getIdentifier` function to check which wallet is active, without having to enter additional credentials. Returns a string.
 
 ```php
@@ -45,7 +45,7 @@ Balances
 Functions for fetching the balance of a whole wallet or of a particular address.
 
 
-###Wallet Balance
+### Wallet Balance
 Get the balance of the whole wallet. Returns a `string` representing the floating point balance, e.g. `"12.64952835"`.
 
 ```php
@@ -53,7 +53,7 @@ $balance = $Blockchain->Wallet->getBalance();
 ```
 
 
-###Address Balance
+### Address Balance
 Get the balance of a single wallet address. Returns a `WalletAddress` object.
 
 ```php
@@ -65,7 +65,7 @@ Transactions
 ------------
 Functions for making outgoing Bitcoin transactions from the wallet.
 
-###Send
+### Send
 Send Bitcoin to a single recipient address. The `$amount` field is either a `float` or `string` representation of the floating point value. See above note on Bitcoin values.
 
 The optional `$from_address` field specifies which wallet address from which to send the funds. An optional `$fee` amount (`float`) may be specified but must be more than the default fee listed on the [official documentation](https://blockchain.info/api/blockchain_wallet_api).
@@ -81,7 +81,7 @@ $response = $Blockchain->Wallet->send($to_address, $amount, $from_address=null, 
 $response = $Blockchain->Wallet->send("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa", "0.005", null, "0.0001", "Here you go, Satoshi!");
 ```
 
-###SendMany
+### SendMany
 Send a multi-recipient transaction to many addresses at once. The `$recipients` parameter is an associative array with `address` keys and `amount` values (see example). Optional parameters are the same as with the `send` call. Returns `PaymentResponse` object and throws a `Blockchain_ApiError` exception for insufficient funds, etc.
 ```php
 $response = $Blockchain->Wallet->sendMany($recipients, $from_address=null, $fee=null, $public_note=null);
@@ -99,7 +99,7 @@ Address Management
 A wallet may contain many addresses, not all of which must be active at all times. Active addresses are monitored for activity, while archived addresses are not. It is recommended that addresses be archived when it is reasonable to assume that there will not be further activity to that address. For instance, after an invoice is filled, the payment address may be archived once the received coins are moved.
 
 
-###List Active Addresses
+### List Active Addresses
 Call `getAddresses` to return a list of the active addresses within the wallet. Returns an array of `WalletAddress` objects.
 
 ```php
@@ -107,7 +107,7 @@ $addresses = $Blockchain->Wallet->getAddresses();
 ```
 
 
-###Get New Address
+### Get New Address
 Generate a new Bitcoin address, with an optional label, less than 255 characters in length. Returns a `WalletAddress` object.
 
 ```php
@@ -115,7 +115,7 @@ $address = $Blockchain->Wallet->getNewAddress($label=null);
 ```
 
 
-###Archive Address
+### Archive Address
 Move an address to the archive. Returns `true` on success and `false` on failure.
 
 ```php
@@ -123,7 +123,7 @@ $result = $Blockchain->Wallet->archiveAddress($address);
 ```
 
 
-###Unrchive Address
+### Unrchive Address
 Move an address from the archive to the active address list. Returns `true` on success and `false` on failure.
 
 ```php
@@ -136,7 +136,7 @@ Return Objects
 
 Calls to the API usually return first-class objects.
 
-###PaymentResponse
+### PaymentResponse
 
 ```php
 class PaymentResponse {
@@ -146,7 +146,7 @@ class PaymentResponse {
 }
 ```
 
-###WalletAddress
+### WalletAddress
 
 ```php
 class WalletAddress {
