@@ -19,21 +19,21 @@ There are two ways to create wallets: provide an existing private key or let Blo
 
 Please read the [offical documentation](https://blockchain.info/api/create_wallet) for important details.
 
-###Create with Key
+### Create with Key
 Create a new wallet with a known private key. Returns a `WalletResponse` object.
 
 ```php
 $wallet = $Blockchain->Create->createWithKey($password, $privKey, $email=null, $label=null);
 ```
 
-###Create without Key
+### Create without Key
 Create a new wallet, letting Blockchain generate a new private key. Returns a `WalletResponse` object.
 
 ```php
 $wallet = $Blockchain->Create->create($password, $email=null, $label=null);
 ```
 
-###WalletResponse
+### WalletResponse
 The `WalletResponse` object contains fields for the wallet identifier (`guid`), the `address` for receiving Bitcoin, and a `label` for the first account of the wallet.
 
 ```php
