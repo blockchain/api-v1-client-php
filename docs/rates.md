@@ -29,7 +29,7 @@ $rates = $Blockchain->Rates->get();
 foreach($rates as $cur=>$ticker) { ... }
 ```
 
-###Ticker
+### Ticker
 
 ```php
 class Ticker {
