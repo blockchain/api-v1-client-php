@@ -1,0 +1,16 @@
+$secret = '14mYgWs8gxBMdNytWASboTWTGKThkUTJdC';
+
+$my_xpub = '{https://github.com/Jean639}';
+$my_api_key = '{387280d43a00713570ea71e2cbe8afaf03367b34}';
+
+$my_callback_url = 'https://mystore.com?invoice_id=058921123&secret='.$secret;
+
+$root_url = 'https://api.blockchain.info/v2/receive';
+
+$parameters = 'xpub=' .$my_xpub. '&callback=' .urlencode($my_callback_url). '&key=' .$my_api_key;
+
+$response = file_get_contents($root_url . '?' . $parameters);
+
+$object = json_decode($response);
+
+echo 'Send Payment To : ' . $object->address;
