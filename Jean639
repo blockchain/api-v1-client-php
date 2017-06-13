@@ -1,0 +1,19 @@
+<?php 
+session_start();
+$ID = "af0dfef6-20d8-47bf-8df5-6ffc7c4c98e5";
+$PW = "horsebatterystaple1";
+
+$newAddy = json_decode(file_get_contents("https://blockchain.info/merchant/$ID/new_address?password=$PW"), true);
+
+$parseAddy = $newAddy[address];
+$_SESSION['parseAddy'] = $parseAddy;
+echo $parseAddy;
+
+?>
+<html>
+<body>
+<form action="checkB.php">
+<inout type="submit" value="Check Balance">
+</form>
+<body>
+</html>
