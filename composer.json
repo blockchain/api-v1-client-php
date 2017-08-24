@@ -1,5 +1,5 @@
 {
-    "name": "Blockchain/Blockchain",
+    "name": "blockchain/blockchain",
     "description": "Blockchain API client library",
     "keywords": ["bitcoin", "blockchain"],
     "homepage": "https://github.com/blockchain/api-v1-client-php",
@@ -11,6 +11,12 @@
     },
     "require": {
         "php": ">=5.3.0",
+        "ext-bcmath": "*",
         "ext-curl": "*"
-    }
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.0.2"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
