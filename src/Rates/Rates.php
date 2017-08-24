@@ -2,7 +2,7 @@
 
 namespace Blockchain\Rates;
 
-use \Blockchain\Blockchain;
+use Blockchain\Blockchain;
 
 class Rates
 {

@@ -49,8 +49,9 @@ class Receive
     public function generate($key, $xpub, $callback, $gap_limit = null)
     {
         $p = compact('key', 'xpub', 'callback');
-        if(!is_null($gap_limit))
+        if (!is_null($gap_limit)) {
             $p['gap_limit'] = $gap_limit;
+        }
         $q = http_build_query($p);
 
         curl_setopt($this->ch, CURLOPT_POST, false);
@@ -60,7 +61,7 @@ class Receive
             throw new HttpError(curl_error($this->ch));
         }
 
-        if (($data = json_decode($resp, true)) === NULL) {
+        if (($data = json_decode($resp, true)) === null) {
             throw new Error("Unable to decode JSON response from Blockchain: $resp");
         }
 
@@ -95,7 +96,7 @@ class Receive
             throw new HttpError(curl_error($this->ch));
         }
 
-        if (($data = json_decode($resp, true)) === NULL) {
+        if (($data = json_decode($resp, true)) === null) {
             throw new Error("Unable to decode JSON response from Blockchain: $resp");
         }
 
@@ -129,7 +130,7 @@ class Receive
             throw new HttpError(curl_error($this->ch));
         }
 
-        if (($data = json_decode($resp, true)) === NULL) {
+        if (($data = json_decode($resp, true)) === null) {
             throw new Error("Unable to decode JSON response from Blockchain: $resp");
         }
 
@@ -150,9 +151,11 @@ class Receive
      */
     private function createCallbackLogEntry($data)
     {
-        return new CallbackLogEntry($data['callback'],
-                                    new DateTime($data['called_at']),
-                                    $data['raw_response'],
-                                    $data['response_code']);
+        return new CallbackLogEntry(
+            $data['callback'],
+            new DateTime($data['called_at']),
+            $data['raw_response'],
+            $data['response_code']
+        );
     }
 }

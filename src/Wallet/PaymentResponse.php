@@ -1,35 +1,10 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 
-/**
- * Short File Description
- * 
- * PHP version 5
- * 
- * @category   aCategory
- * @package    aPackage
- * @subpackage aSubPackage
- * @author     anAuthor
- * @copyright  2014 a Copyright
- * @license    a License
- * @link       http://www.aLink.com
- */
+
 namespace Blockchain\Wallet;
 
-/**
- * Short Class Description
- * 
- * PHP version 5
- * 
- * @category   aCategory
- * @package    aPackage
- * @subpackage aSubPackage
- * @author     anAuthor
- * @copyright  2014 a Copyright
- * @license    a License
- * @link       http://www.aLink.com
- */
-class PaymentResponse 
+class PaymentResponse
 {
     /**
      * Properties
@@ -41,12 +16,16 @@ class PaymentResponse
     /**
      * Methods
      */
-    public function __construct($json) {
-        if(array_key_exists('message', $json))
+    public function __construct($json)
+    {
+        if (array_key_exists('message', $json)) {
             $this->message = $json['message'];
-        if(array_key_exists('tx_hash', $json))
+        }
+        if (array_key_exists('tx_hash', $json)) {
             $this->tx_hash = $json['tx_hash'];
-        if(array_key_exists('notice', $json))
+        }
+        if (array_key_exists('notice', $json)) {
             $this->notice = $json['notice'];
+        }
     }
 }

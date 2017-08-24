@@ -1,58 +1,36 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 
-/**
- * Short File Description
- *
- * PHP version 5
- *
- * @category   aCategory
- * @package    aPackage
- * @subpackage aSubPackage
- * @author     anAuthor
- * @copyright  2014 a Copyright
- * @license    a License
- * @link       http://www.aLink.com
- */
-
 namespace Blockchain;
 
-use \Blockchain\Exception\Error;
-use \Blockchain\Exception\ApiError;
-use \Blockchain\Exception\HttpError;
+use Blockchain\Exception\Error;
+use Blockchain\Exception\ApiError;
+use Blockchain\Exception\HttpError;
 
-use \Blockchain\Create\Create;
-use \Blockchain\Explorer\Explorer;
-use \Blockchain\PushTX\Push;
-use \Blockchain\Rates\Rates;
-use \Blockchain\Stats\Stats;
-use \Blockchain\Wallet\Wallet;
+use Blockchain\Create\Create;
+use Blockchain\Explorer\Explorer;
+use Blockchain\PushTX\Push;
+use Blockchain\Rates\Rates;
+use Blockchain\Stats\Stats;
+use Blockchain\Wallet\Wallet;
 
-use \Blockchain\V2\Receive\Receive as ReceiveV2;
+use Blockchain\V2\Receive\Receive as ReceiveV2;
 
-// Check if BCMath module installed
-if(!function_exists('bcscale')) {
-    throw new Error("BC Math module not installed.");
-}
-
-// Check if curl module installed
-if(!function_exists('curl_init')) {
-    throw new Error("cURL module not installed.");
-}
-
-class Blockchain {
+class Blockchain
+{
     const URL = 'https://blockchain.info/';
 
     private $ch;
     private $api_code = null;
 
     const DEBUG = true;
-    public $log = Array();
+    public $log = array();
 
-    public function __construct($api_code=null) {
+    public function __construct($api_code = null)
+    {
         $this->service_url = null;
 
-        if(!is_null($api_code)) {
+        if (!is_null($api_code)) {
             $this->api_code = $api_code;
         }
 
@@ -73,22 +51,26 @@ class Blockchain {
         $this->Wallet    = new Wallet($this);
     }
 
-    public function __destruct() {
+    public function __destruct()
+    {
         curl_close($this->ch);
     }
 
-    public function setTimeout($timeout) {
+    public function setTimeout($timeout)
+    {
         curl_setopt($this->ch, CURLOPT_TIMEOUT, intval($timeout));
     }
 
-    public function setServiceUrl($service_url) {
-        if (substr($service_url, -1, 1) != '/'){
+    public function setServiceUrl($service_url)
+    {
+        if (substr($service_url, -1, 1) != '/') {
             $service_url = $service_url . '/';
         }
         $this->service_url = $service_url;
     }
 
-    public function post($resource, $data=null) {
+    public function post($resource, $data = null)
+    {
         $url = Blockchain::URL;
 
         if (($resource == "api/v2/create") || (substr($resource, 0, 8) === "merchant")) {
@@ -101,10 +83,13 @@ class Blockchain {
         curl_setopt($this->ch, CURLOPT_URL, $url.$resource);
         curl_setopt($this->ch, CURLOPT_POST, true);
 
-        curl_setopt($this->ch, CURLOPT_HTTPHEADER,
-            array("Content-Type: application/x-www-form-urlencoded"));
+        curl_setopt(
+            $this->ch,
+            CURLOPT_HTTPHEADER,
+            array("Content-Type: application/x-www-form-urlencoded")
+        );
 
-        if(!is_null($this->api_code)) {
+        if (!is_null($this->api_code)) {
             $data['api_code'] = $this->api_code;
         }
 
@@ -113,14 +98,15 @@ class Blockchain {
         $json = $this->_call();
 
         // throw ApiError if we get an 'error' field in the JSON
-        if(array_key_exists('error', $json)) {
+        if (array_key_exists('error', $json)) {
             throw new ApiError($json['error']);
         }
 
         return $json;
     }
 
-    public function get($resource, $params=array()) {
+    public function get($resource, $params = array())
+    {
         $url = Blockchain::URL;
 
         if (($resource == "api/v2/create") || (substr($resource, 0, 8) === "merchant")) {
@@ -129,7 +115,7 @@ class Blockchain {
 
         curl_setopt($this->ch, CURLOPT_POST, false);
 
-        if(!is_null($this->api_code)) {
+        if (!is_null($this->api_code)) {
             $params['api_code'] = $this->api_code;
         }
         curl_setopt($this->ch, CURLOPT_HTTPHEADER, array());
@@ -140,24 +126,26 @@ class Blockchain {
         return $this->_call();
     }
 
-    private function _call() {
+    private function _call()
+    {
         $t0 = microtime(true);
         $response = curl_exec($this->ch);
         $dt = microtime(true) - $t0;
 
-        if(curl_error($this->ch)) {
+        if (curl_error($this->ch)) {
             $info = curl_getinfo($this->ch);
             throw new HttpError("Call to " . $info['url'] . " failed: " . curl_error($this->ch));
         }
         $json = json_decode($response, true);
-        if(is_null($json)) {
+        if (is_null($json)) {
             // this is possibly a from btc request with a comma separation
             $json = json_decode(str_replace(',', '', $response));
-            if (is_null($json))
+            if (is_null($json)) {
                 throw new Error("Unable to decode JSON response from Blockchain: " . $response);
+            }
         }
 
-        if(self::DEBUG) {
+        if (self::DEBUG) {
             $info = curl_getinfo($this->ch);
             $this->log[] = array(
                 'curl_info' => $info,

@@ -7,13 +7,11 @@ An official PHP library for interacting with the blockchain.info API.
 Getting Started
 ---------------
 
-Download the source or clone the repository. This php library works with the [Composer](https://getcomposer.org/) package manager. Navigate to the root of the repository and run
+This php library works with the [Composer](https://getcomposer.org/) package manager. Install it into your project by running the following command.
 
 ```
-$ composer install
+$ composer require blockchain/blockchain
 ```
-
-This will create the `/vendor` folder in the repository root.
 
 In order to use Wallet and CreateWallet functionality, you must provide an URL to an instance of [service-my-wallet-v3](https://github.com/blockchain/service-my-wallet-v3).
 Before using these functionalities, call \Blockchain\Blockchain::setServiceUrl to set the URL to the instance of of [service-my-wallet-v3](https://github.com/blockchain/service-my-wallet-v3).
