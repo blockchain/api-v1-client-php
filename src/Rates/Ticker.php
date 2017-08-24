@@ -19,18 +19,24 @@ class Ticker
     /**
      * Methods
      */
-    public function __construct($cur, $json) {
+    public function __construct($cur, $json)
+    {
         $this->cur = $cur;
 
-        if(array_key_exists('15m', $json))
+        if (array_key_exists('15m', $json)) {
             $this->m15 = $json['15m'];
-        if(array_key_exists('last', $json))
+        }
+        if (array_key_exists('last', $json)) {
             $this->last = $json['last'];
-        if(array_key_exists('buy', $json))
+        }
+        if (array_key_exists('buy', $json)) {
             $this->buy = $json['buy'];
-        if(array_key_exists('sell', $json))
+        }
+        if (array_key_exists('sell', $json)) {
             $this->sell = $json['sell'];
-        if(array_key_exists('symbol', $json))
+        }
+        if (array_key_exists('symbol', $json)) {
             $this->symbol = $json['symbol'];
+        }
     }
 }

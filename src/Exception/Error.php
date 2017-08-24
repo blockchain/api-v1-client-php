@@ -14,5 +14,4 @@ class Error extends \Exception
     /**
      * Methods
      */
-    
 }

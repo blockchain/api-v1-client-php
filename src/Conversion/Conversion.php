@@ -6,17 +6,9 @@ namespace Blockchain\Conversion;
 class Conversion
 {
     /**
-     * Properties
-     */
-    
-
-    /**
-     * Methods
-     */
-    /**
      * Convert an incoming integer to a BTC string value
      */
-    static function BTC_int2str($val)
+    public static function btcInt2Str($val)
     {
         $a = bcmul($val, "1.0", 1);
         return bcdiv($a, "100000000", 8);
@@ -25,7 +17,7 @@ class Conversion
     /**
      * Convert a float value to BTC satoshi integer string
      */
-    static function BTC_float2int($val)
+    public static function btcFloat2Int($val)
     {
         return bcmul($val, "100000000", 0);
     }
@@ -33,16 +25,16 @@ class Conversion
     /**
      * From comment on http://php.net/manual/en/ref.bc.php
      */
-    static function bcconv($fNumber)
+    public static function bcconv($fNumber)
     {
         $sAppend = '';
         $iDecimals = ini_get('precision') - floor(log10(abs($fNumber)));
         if (0 > $iDecimals) {
             $fNumber *= pow(10, $iDecimals);
-            $sAppend = str_repeat('0', -$iDecimals);
+            $sAppend = str_repeat('0', - $iDecimals);
             $iDecimals = 0;
         }
 
-        return number_format($fNumber, $iDecimals, '.', '').$sAppend;
+        return number_format($fNumber, $iDecimals, '.', '') . $sAppend;
     }
 }

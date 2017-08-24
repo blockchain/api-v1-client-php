@@ -14,5 +14,4 @@ class HttpError extends \Exception
     /**
      * Methods
      */
-    
 }

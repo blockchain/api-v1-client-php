@@ -4,7 +4,7 @@ namespace Blockchain\Explorer;
 
 class FilterType
 {
-    const All = 4;
-    const ConfirmedOnly = 5;
-    const RemoveUnspendable = 6;
+    const ALL = 4;
+    const CONFIRMED_ONLY = 5;
+    const REMOVE_UNSPENDABLE = 6;
 }

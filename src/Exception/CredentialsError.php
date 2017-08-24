@@ -14,5 +14,4 @@ class CredentialsError extends \Exception
     /**
      * Methods
      */
-    
 }

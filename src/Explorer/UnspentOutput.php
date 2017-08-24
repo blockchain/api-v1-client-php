@@ -21,22 +21,31 @@ class UnspentOutput
     /**
      * Methods
      */
-    public function __construct($json) {
-        if(array_key_exists('tx_hash', $json))
+    public function __construct($json)
+    {
+        if (array_key_exists('tx_hash', $json)) {
             $this->tx_hash_le = $json['tx_hash'];
-        if(array_key_exists('tx_hash_big_endian', $json))
+        }
+        if (array_key_exists('tx_hash_big_endian', $json)) {
             $this->tx_hash = $json['tx_hash_big_endian'];
-        if(array_key_exists('tx_index', $json))
+        }
+        if (array_key_exists('tx_index', $json)) {
             $this->tx_index = $json['tx_index'];
-        if(array_key_exists('tx_output_n', $json))
+        }
+        if (array_key_exists('tx_output_n', $json)) {
             $this->tx_output_n = $json['tx_output_n'];
-        if(array_key_exists('script', $json))
+        }
+        if (array_key_exists('script', $json)) {
             $this->script = $json['script'];
-        if(array_key_exists('value', $json))
-            $this->value = \Blockchain\Conversion\Conversion::BTC_int2str($json['value']);
-        if(array_key_exists('value_hex', $json))
+        }
+        if (array_key_exists('value', $json)) {
+            $this->value = \Blockchain\Conversion\Conversion::btcInt2Str($json['value']);
+        }
+        if (array_key_exists('value_hex', $json)) {
             $this->value_hex = $json['value_hex'];
-        if(array_key_exists('confirmations', $json))
+        }
+        if (array_key_exists('confirmations', $json)) {
             $this->confirmations = $json['confirmations'];
+        }
     }
 }

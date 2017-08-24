@@ -14,5 +14,4 @@ class ParameterError extends \Exception
     /**
      * Methods
      */
-    
 }

@@ -19,22 +19,31 @@ class Output
     /**
      * Methods
      */
-    public function __construct($json) {
-        if(array_key_exists('n', $json))
+    public function __construct($json)
+    {
+        if (array_key_exists('n', $json)) {
             $this->n = $json['n'];
-        if(array_key_exists('value', $json))
-            $this->value = \Blockchain\Conversion\Conversion::BTC_int2str($json['value']);
-        if(array_key_exists('addr', $json))
+        }
+        if (array_key_exists('value', $json)) {
+            $this->value = \Blockchain\Conversion\Conversion::btcInt2Str($json['value']);
+        }
+        if (array_key_exists('addr', $json)) {
             $this->address = $json['addr'];
-        if(array_key_exists('tx_index', $json))
+        }
+        if (array_key_exists('tx_index', $json)) {
             $this->tx_index = $json['tx_index'];
-        if(array_key_exists('script', $json))
+        }
+        if (array_key_exists('script', $json)) {
             $this->script = $json['script'];
-        if(array_key_exists('spent', $json))
+        }
+        if (array_key_exists('spent', $json)) {
             $this->spent = $json['spent'];
-        if(array_key_exists('addr_tag', $json))
+        }
+        if (array_key_exists('addr_tag', $json)) {
             $this->address_tag = $json['addr_tag'];
-        if(array_key_exists('addr_tag_link', $json))
+        }
+        if (array_key_exists('addr_tag_link', $json)) {
             $this->address_tag_link = $json['addr_tag_link'];
+        }
     }
 }
