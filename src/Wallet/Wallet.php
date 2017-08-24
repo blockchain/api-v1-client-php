@@ -2,9 +2,10 @@
 
 namespace Blockchain\Wallet;
 
-use \Blockchain\Blockchain;
-use \Blockchain\Exception\CredentialsError;
-use \Blockchain\Exception\ParameterError;
+use Blockchain\Blockchain;
+use Blockchain\Conversion\Conversion;
+use Blockchain\Exception\CredentialsError;
+use Blockchain\Exception\ParameterError;
 
 class Wallet
 {
@@ -62,7 +63,7 @@ class Wallet
     public function getBalance()
     {
         $json = $this->call('balance');
-        return \Blockchain\Conversion\Conversion::btcInt2Str($json['balance']);
+        return Conversion::btcInt2Str($json['balance']);
     }
 
     public function getAddressBalance($address)
@@ -118,14 +119,14 @@ class Wallet
         }
 
         $params = array(
-            'to'=>$to_address,
-            'amount'=>\Blockchain\Conversion\Conversion::btcFloat2Int($amount)
+            'to' => $to_address,
+            'amount' => Conversion::btcFloat2Int($amount)
         );
         if (!is_null($from_address)) {
             $params['from'] = $from_address;
         }
         if (!is_null($fee)) {
-            $params['fee'] = \Blockchain\Conversion\Conversion::btcFloat2Int($fee);
+            $params['fee'] = Conversion::btcFloat2Int($fee);
         }
 
         return new PaymentResponse($this->call('payment', $params));
@@ -136,7 +137,7 @@ class Wallet
         $R = array();
         // Construct JSON by hand, preserving the full value of amounts
         foreach ($recipients as $address => $amount) {
-            $R[] = '"' . $address . '":' . \Blockchain\Conversion\Conversion::btcFloat2Int($amount);
+            $R[] = '"' . $address . '":' . Conversion::btcFloat2Int($amount);
         }
         $json = '{' . implode(',', $R) . '}';
 
@@ -147,7 +148,7 @@ class Wallet
             $params['from'] = $from_address;
         }
         if (!is_null($fee)) {
-            $params['fee'] = \Blockchain\Conversion\Conversion::btcFloat2Int($fee);
+            $params['fee'] = Conversion::btcFloat2Int($fee);
         }
 
         return new PaymentResponse($this->call('sendmany', $params));

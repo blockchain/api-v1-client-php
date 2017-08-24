@@ -1,8 +1,9 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 
-
 namespace Blockchain\Explorer;
+
+use Blockchain\Conversion\Conversion;
 
 class Input
 {
@@ -33,7 +34,7 @@ class Input
                 $this->n = $P['n'];
             }
             if (array_key_exists('value', $P)) {
-                $this->value = \Blockchain\Conversion\Conversion::btcInt2Str($P['value']);
+                $this->value = Conversion::btcInt2Str($P['value']);
             }
             if (array_key_exists('addr', $P)) {
                 $this->address = $P['addr'];

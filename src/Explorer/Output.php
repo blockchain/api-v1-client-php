@@ -1,8 +1,9 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 
-
 namespace Blockchain\Explorer;
+
+use Blockchain\Conversion\Conversion;
 
 class Output
 {
@@ -25,7 +26,7 @@ class Output
             $this->n = $json['n'];
         }
         if (array_key_exists('value', $json)) {
-            $this->value = \Blockchain\Conversion\Conversion::btcInt2Str($json['value']);
+            $this->value = Conversion::btcInt2Str($json['value']);
         }
         if (array_key_exists('addr', $json)) {
             $this->address = $json['addr'];

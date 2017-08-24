@@ -2,8 +2,8 @@
 
 namespace Blockchain\Explorer;
 
-use \Blockchain\Blockchain;
-use \Blockchain\Exception\FormatError;
+use Blockchain\Blockchain;
+use Blockchain\Exception\FormatError;
 
 class Explorer
 {

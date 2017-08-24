@@ -3,6 +3,8 @@
 
 namespace Blockchain\Explorer;
 
+use Blockchain\Conversion\Conversion;
+
 class Address
 {
     /**
@@ -31,13 +33,13 @@ class Address
             $this->n_tx = $json['n_tx'];
         }
         if (array_key_exists('total_received', $json)) {
-            $this->total_received = \Blockchain\Conversion\Conversion::btcInt2Str($json['total_received']);
+            $this->total_received = Conversion::btcInt2Str($json['total_received']);
         }
         if (array_key_exists('total_sent', $json)) {
-            $this->total_sent = \Blockchain\Conversion\Conversion::btcInt2Str($json['total_sent']);
+            $this->total_sent = Conversion::btcInt2Str($json['total_sent']);
         }
         if (array_key_exists('final_balance', $json)) {
-            $this->final_balance = \Blockchain\Conversion\Conversion::btcInt2Str($json['final_balance']);
+            $this->final_balance = Conversion::btcInt2Str($json['final_balance']);
         }
         if (array_key_exists('txs', $json)) {
             foreach ($json['txs'] as $txn) {

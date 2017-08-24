@@ -4,6 +4,8 @@
 
 namespace Blockchain\Explorer;
 
+use Blockchain\Conversion\Conversion;
+
 class Block
 {
     /**
@@ -50,7 +52,7 @@ class Block
             $this->bits = $json['bits'];
         }
         if (array_key_exists('fee', $json)) {
-            $this->fee = \Blockchain\Conversion\Conversion::btcInt2Str($json['fee']);
+            $this->fee = Conversion::btcInt2Str($json['fee']);
         }
         if (array_key_exists('nonce', $json)) {
             $this->nonce = $json['nonce'];

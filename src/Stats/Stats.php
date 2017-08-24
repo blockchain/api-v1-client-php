@@ -2,7 +2,7 @@
 
 namespace Blockchain\Stats;
 
-use \Blockchain\Blockchain;
+use Blockchain\Blockchain;
 
 class Stats
 {

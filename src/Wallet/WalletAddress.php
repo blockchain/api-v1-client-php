@@ -1,8 +1,9 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 
-
 namespace Blockchain\Wallet;
+
+use Blockchain\Conversion\Conversion;
 
 class WalletAddress
 {
@@ -20,7 +21,7 @@ class WalletAddress
     public function __construct($json)
     {
         if (array_key_exists('balance', $json)) {
-            $this->balance = \Blockchain\Conversion\Conversion::btcInt2Str($json['balance']);
+            $this->balance = Conversion::btcInt2Str($json['balance']);
         }
         if (array_key_exists('address', $json)) {
             $this->address = $json['address'];

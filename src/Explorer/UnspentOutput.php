@@ -1,8 +1,9 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 
-
 namespace Blockchain\Explorer;
+
+use Blockchain\Conversion\Conversion;
 
 class UnspentOutput
 {
@@ -39,7 +40,7 @@ class UnspentOutput
             $this->script = $json['script'];
         }
         if (array_key_exists('value', $json)) {
-            $this->value = \Blockchain\Conversion\Conversion::btcInt2Str($json['value']);
+            $this->value = Conversion::btcInt2Str($json['value']);
         }
         if (array_key_exists('value_hex', $json)) {
             $this->value_hex = $json['value_hex'];

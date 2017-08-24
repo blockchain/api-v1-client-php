@@ -3,28 +3,18 @@
 
 namespace Blockchain;
 
-use \Blockchain\Exception\Error;
-use \Blockchain\Exception\ApiError;
-use \Blockchain\Exception\HttpError;
+use Blockchain\Exception\Error;
+use Blockchain\Exception\ApiError;
+use Blockchain\Exception\HttpError;
 
-use \Blockchain\Create\Create;
-use \Blockchain\Explorer\Explorer;
-use \Blockchain\PushTX\Push;
-use \Blockchain\Rates\Rates;
-use \Blockchain\Stats\Stats;
-use \Blockchain\Wallet\Wallet;
+use Blockchain\Create\Create;
+use Blockchain\Explorer\Explorer;
+use Blockchain\PushTX\Push;
+use Blockchain\Rates\Rates;
+use Blockchain\Stats\Stats;
+use Blockchain\Wallet\Wallet;
 
-use \Blockchain\V2\Receive\Receive as ReceiveV2;
-
-// Check if BCMath module installed
-if (!function_exists('bcscale')) {
-    throw new Error("BC Math module not installed.");
-}
-
-// Check if curl module installed
-if (!function_exists('curl_init')) {
-    throw new Error("cURL module not installed.");
-}
+use Blockchain\V2\Receive\Receive as ReceiveV2;
 
 class Blockchain
 {

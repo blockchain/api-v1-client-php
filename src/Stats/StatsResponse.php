@@ -1,8 +1,9 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 
-
 namespace Blockchain\Stats;
+
+use Blockchain\Conversion\Conversion;
 
 class StatsResponse
 {
@@ -43,7 +44,7 @@ class StatsResponse
             $this->difficulty = $json['difficulty'];
         }
         if (array_key_exists('estimated_btc_sent', $json)) {
-            $this->estimated_btc_sent = \Blockchain\Conversion\Conversion::btcInt2Str(\Blockchain\Conversion\Conversion::bcconv($json['estimated_btc_sent']));
+            $this->estimated_btc_sent = Conversion::btcInt2Str(Conversion::bcconv($json['estimated_btc_sent']));
         }
         if (array_key_exists('estimated_transaction_volume_usd', $json)) {
             $this->estimated_transaction_volume_usd = $json['estimated_transaction_volume_usd'];
@@ -70,7 +71,7 @@ class StatsResponse
             $this->n_blocks_total = $json['n_blocks_total'];
         }
         if (array_key_exists('n_btc_mined', $json)) {
-            $this->n_btc_mined = \Blockchain\Conversion\Conversion::btcInt2Str(\Blockchain\Conversion\Conversion::bcconv($json['n_btc_mined']));
+            $this->n_btc_mined = Conversion::btcInt2Str(Conversion::bcconv($json['n_btc_mined']));
         }
         if (array_key_exists('n_tx', $json)) {
             $this->n_tx = $json['n_tx'];
@@ -82,13 +83,13 @@ class StatsResponse
             $this->timestamp = $json['timestamp']/1000.0;
         }
         if (array_key_exists('total_btc_sent', $json)) {
-            $this->total_btc_sent = \Blockchain\Conversion\Conversion::btcInt2Str(\Blockchain\Conversion\Conversion::bcconv($json['total_btc_sent']));
+            $this->total_btc_sent = Conversion::btcInt2Str(Conversion::bcconv($json['total_btc_sent']));
         }
         if (array_key_exists('total_fees_btc', $json)) {
-            $this->total_fees_btc = \Blockchain\Conversion\Conversion::btcInt2Str(\Blockchain\Conversion\Conversion::bcconv($json['total_fees_btc']));
+            $this->total_fees_btc = Conversion::btcInt2Str(Conversion::bcconv($json['total_fees_btc']));
         }
         if (array_key_exists('totalbc', $json)) {
-            $this->totalbc = \Blockchain\Conversion\Conversion::btcInt2Str(\Blockchain\Conversion\Conversion::bcconv($json['totalbc']));
+            $this->totalbc = Conversion::btcInt2Str(Conversion::bcconv($json['totalbc']));
         }
         if (array_key_exists('trade_volume_btc', $json)) {
             $this->trade_volume_btc = $json['trade_volume_btc'];

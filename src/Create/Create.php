@@ -2,8 +2,8 @@
 
 namespace Blockchain\Create;
 
-use \Blockchain\Blockchain;
-use \Blockchain\Exception\ParameterError;
+use Blockchain\Blockchain;
+use Blockchain\Exception\ParameterError;
 
 class Create
 {

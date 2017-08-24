@@ -2,7 +2,7 @@
 
 namespace Blockchain\PushTX;
 
-use \Blockchain\Blockchain;
+use Blockchain\Blockchain;
 
 class Push
 {
