@@ -131,4 +131,35 @@ class Wallet {
 
         return new PaymentResponse($this->call('sendmany', $params));
     }
+    
+    public function listXpubsHD()
+    {
+      return $this->call('accounts/xpubs');
+    }
+
+    public function enableHD()
+    {
+      return $this->call('enableHD');
+    }
+
+    public function receivingAddressHD($xpub = NULL){
+        //use xpub of the default account if xpub is not supplied
+        $xpub = (is_null($xpub)) ? $this->listXpubs()[0] : $xpub;
+        if(empty($xpub)){
+            throw new ParameterError('Invalid xpub. Please enter correct wallet xpub.');
+        }else{
+            return $this->call('accounts/'.$xpub.'/receiveAddress');
+        }
+    }
+
+    public function getBalanceHD($xpub =  NULL)
+    {
+        $xpub = (is_null($xpub)) ? $this->listXpubs()[0] : $xpub;
+        if(empty($xpub)){
+            throw new ParameterError('Invalid xpub. Please enter correct wallet xpub.');
+        }else{
+            $json = $this->call('accounts/'.$xpub.'/balance');
+            return \Blockchain\Conversion\Conversion::BTC_int2str($json['balance']);
+        }
+    }
 }
