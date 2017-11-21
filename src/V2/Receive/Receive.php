@@ -51,7 +51,7 @@ class Receive
         $p = compact('key', 'xpub', 'callback');
         if(!is_null($gap_limit))
             $p['gap_limit'] = $gap_limit;
-        $q = http_build_query($p);
+        $q = http_build_query($p, null, '&');
 
         curl_setopt($this->ch, CURLOPT_POST, false);
         curl_setopt($this->ch, CURLOPT_URL, static::URL.'?'.$q);
