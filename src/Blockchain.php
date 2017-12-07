@@ -40,6 +40,15 @@ if(!function_exists('curl_init')) {
     throw new Error("cURL module not installed.");
 }
 
+/**
+ * @property Create $Create Create Wallets - Create new Blockchain wallets
+ * @property Explorer $Explorer Block explorer - Access details of the Bitcoin blockchain
+ * @property Push $Push Push Transaction - Push raw transactions to the Bitcoin network
+ * @property Rates $Rates Exchange Rates - See the value of Bitcoin relative to world currencies
+ * @property ReceiveV2 $RecieveV2 Receive v2 - The easiest way to accept Bitcoin payments with the v2 Receive API
+ * @property Stats $Stats Statistics - Bitcoin network statistics
+ * @property Wallet $Wallet Wallet - Send and receive Bitcoin
+ */
 class Blockchain {
     const URL = 'https://blockchain.info/';
 
