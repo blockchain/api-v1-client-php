@@ -97,7 +97,7 @@ class Wallet {
         return false;
     }
 
-    public function send($to_address, $amount, $from_address=null, $fee=null) {
+    public function send($to_address, $amount, $from_address=null, $fee=null, $feePerByte=null) {
         if(!isset($amount))
             throw new ParameterError("Amount required.");
 
@@ -109,6 +109,8 @@ class Wallet {
             $params['from'] = $from_address;
         if(!is_null($fee))
             $params['fee'] = \Blockchain\Conversion\Conversion::BTC_float2int($fee);
+        if(!is_null($feePerByte))
+            $params['fee_per_byte'] = \Blockchain\Conversion\Conversion::BTC_float2int($feePerByte);
 
         return new PaymentResponse($this->call('payment', $params));
     }
