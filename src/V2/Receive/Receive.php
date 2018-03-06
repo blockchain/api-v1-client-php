@@ -51,7 +51,7 @@ class Receive
         $p = compact('key', 'xpub', 'callback');
         if(!is_null($gap_limit))
             $p['gap_limit'] = $gap_limit;
-        $q = http_build_query($p);
+        $q = http_build_query($p, null, '&');
 
         curl_setopt($this->ch, CURLOPT_POST, false);
         curl_setopt($this->ch, CURLOPT_URL, static::URL.'?'.$q);
@@ -86,7 +86,7 @@ class Receive
     public function checkAddressGap($key, $xpub)
     {
         $p = compact('key', 'xpub');
-        $q = http_build_query($p);
+        $q = http_build_query($p, null, '&');
 
         curl_setopt($this->ch, CURLOPT_POST, false);
         curl_setopt($this->ch, CURLOPT_URL, static::URL.'/checkgap?'.$q);
@@ -120,7 +120,7 @@ class Receive
     public function callbackLogs($key, $callback)
     {
         $p = compact('key', 'callback');
-        $q = http_build_query($p);
+        $q = http_build_query($p, null, '&');
 
         curl_setopt($this->ch, CURLOPT_POST, false);
         curl_setopt($this->ch, CURLOPT_URL, static::URL.'/callback_log?'.$q);
