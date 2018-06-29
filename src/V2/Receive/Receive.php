@@ -152,7 +152,7 @@ class Receive
     {
         return new CallbackLogEntry($data['callback'],
                                     new DateTime($data['calledAt']),
-                                    $data['rawRresponse'],
+                                    $data['rawResponse'],
                                     $data['responseCode']);
     }
 }
