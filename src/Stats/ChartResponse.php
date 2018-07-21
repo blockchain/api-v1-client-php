@@ -16,16 +16,21 @@ class ChartResponse
     /*
     * Methods
     */
-    public function __construct($json) {
-        if(array_key_exists('name', $json))
+    public function __construct($json)
+    {
+        if (array_key_exists('name', $json)) {
             $this->chart_name = $json['name'];
-        if(array_key_exists('unit', $json))
+        }
+        if (array_key_exists('unit', $json)) {
             $this->unit = $json['unit'];
-        if(array_key_exists('timespan', $json))
+        }
+        if (array_key_exists('timespan', $json)) {
             $this->timespan = $json['timespan'];
-        if(array_key_exists('description', $json))
+        }
+        if (array_key_exists('description', $json)) {
             $this->description = $json['description'];
-        if(array_key_exists('values', $json)) {
+        }
+        if (array_key_exists('values', $json)) {
             foreach ($json['values'] as $value) {
                 $this->values[] = new ChartValue($value);
             }

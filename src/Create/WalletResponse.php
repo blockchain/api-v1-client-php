@@ -3,9 +3,9 @@
 
 /**
  * Short File Description
- * 
+ *
  * PHP version 5
- * 
+ *
  * @category   aCategory
  * @package    aPackage
  * @subpackage aSubPackage
@@ -18,9 +18,9 @@ namespace Blockchain\Create;
 
 /**
  * Short Class Description
- * 
+ *
  * PHP version 5
- * 
+ *
  * @category   aCategory
  * @package    aPackage
  * @subpackage aSubPackage
@@ -29,7 +29,7 @@ namespace Blockchain\Create;
  * @license    a License
  * @link       http://www.aLink.com
  */
-class WalletResponse 
+class WalletResponse
 {
     /**
      * Properties

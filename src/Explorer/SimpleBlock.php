@@ -3,9 +3,9 @@
 
 /**
  * Short File Description
- * 
+ *
  * PHP version 5
- * 
+ *
  * @category   aCategory
  * @package    aPackage
  * @subpackage aSubPackage
@@ -18,9 +18,9 @@ namespace Blockchain\Explorer;
 
 /**
  * Short Class Description
- * 
+ *
  * PHP version 5
- * 
+ *
  * @category   aCategory
  * @package    aPackage
  * @subpackage aSubPackage
@@ -29,7 +29,7 @@ namespace Blockchain\Explorer;
  * @license    a License
  * @link       http://www.aLink.com
  */
-class SimpleBlock 
+class SimpleBlock
 {
     /**
      * Properties
@@ -42,14 +42,19 @@ class SimpleBlock
     /**
      * Methods
      */
-    public function __construct($json) {
-        if(array_key_exists('height', $json))
+    public function __construct($json)
+    {
+        if (array_key_exists('height', $json)) {
             $this->height = $json['height'];
-        if(array_key_exists('hash', $json))
+        }
+        if (array_key_exists('hash', $json)) {
             $this->hash = $json['hash'];
-        if(array_key_exists('time', $json))
+        }
+        if (array_key_exists('time', $json)) {
             $this->time = $json['time'];
-        if(array_key_exists('main_chain', $json))
+        }
+        if (array_key_exists('main_chain', $json)) {
             $this->main_chain = $json['main_chain'];
+        }
     }
 }

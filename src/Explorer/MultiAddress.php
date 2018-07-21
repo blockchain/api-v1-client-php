@@ -13,7 +13,8 @@ class MultiAddress
     /**
     * Methods
     */
-    public function __construct($json) {
+    public function __construct($json)
+    {
         if (array_key_exists('addresses', $json)) {
             foreach ($json['addresses'] as $addr) {
                 $this->addresses[] = new Address($addr);

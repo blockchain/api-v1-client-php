@@ -7,7 +7,8 @@ namespace Blockchain\V2\Receive;
  *
  * @author George Robinson <george.robinson@blockchain.com>
  */
-class ReceiveResponse {
+class ReceiveResponse
+{
 
     /**
      * @var string
@@ -25,12 +26,13 @@ class ReceiveResponse {
     private $callback;
 
     /**
-     * 
+     *
      * @param string $address  The receive address.
-     * @param int    $index    The index of the receive address. 
+     * @param int    $index    The index of the receive address.
      * @param string $callback The callback URL.
      */
-    public function __construct($address, $index, $callback) {
+    public function __construct($address, $index, $callback)
+    {
         $this->address = $address;
         $this->index = $index;
         $this->callback = $callback;
@@ -41,7 +43,8 @@ class ReceiveResponse {
      *
      * @return string
      */
-    public function getReceiveAddress() {
+    public function getReceiveAddress()
+    {
         return $this->address;
     }
 
@@ -50,7 +53,8 @@ class ReceiveResponse {
      *
      * @return int
      */
-    public function getIndex() {
+    public function getIndex()
+    {
         return $this->index;
     }
 
@@ -59,7 +63,8 @@ class ReceiveResponse {
      *
      * @return string
      */
-    public function getCallback() {
+    public function getCallback()
+    {
         return $this->callback;
     }
 }

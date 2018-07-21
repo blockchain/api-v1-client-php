@@ -3,9 +3,9 @@
 
 /**
  * Short File Description
- * 
+ *
  * PHP version 5
- * 
+ *
  * @category   aCategory
  * @package    aPackage
  * @subpackage aSubPackage
@@ -18,9 +18,9 @@ namespace Blockchain\Conversion;
 
 /**
  * Short Class Description
- * 
+ *
  * PHP version 5
- * 
+ *
  * @category   aCategory
  * @package    aPackage
  * @subpackage aSubPackage
