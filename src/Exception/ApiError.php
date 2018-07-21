@@ -3,9 +3,9 @@
 
 /**
  * Short File Description
- * 
+ *
  * PHP version 5
- * 
+ *
  * @category   aCategory
  * @package    aPackage
  * @subpackage aSubPackage
@@ -18,9 +18,9 @@ namespace Blockchain\Exception;
 
 /**
  * Short Class Description
- * 
+ *
  * PHP version 5
- * 
+ *
  * @category   aCategory
  * @package    aPackage
  * @subpackage aSubPackage
@@ -39,5 +39,4 @@ class ApiError extends \Exception
     /**
      * Methods
      */
-    
 }
