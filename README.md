@@ -18,6 +18,12 @@ This will create the `/vendor` folder in the repository root.
 In order to use Wallet and CreateWallet functionality, you must provide an URL to an instance of [service-my-wallet-v3](https://github.com/blockchain/service-my-wallet-v3).
 Before using these functionalities, call \Blockchain\Blockchain::setServiceUrl to set the URL to the instance of of [service-my-wallet-v3](https://github.com/blockchain/service-my-wallet-v3).
 
+If you are adding this project as a library or third party plugin to your application, no need downloading the source you may rather find it more convenient to use the code below : 
+
+```
+$ composer require blockchain/blockchain
+```
+
 In the php source, simply:
 ```php
 // Include the autoload.php from its vendor directory
