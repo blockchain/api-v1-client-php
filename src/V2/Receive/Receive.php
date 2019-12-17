@@ -151,8 +151,8 @@ class Receive
     private function createCallbackLogEntry($data)
     {
         return new CallbackLogEntry($data['callback'],
-                                    new DateTime($data['called_at']),
-                                    $data['raw_response'],
-                                    $data['response_code']);
+                                    date_timestamp_set(new DateTime(), $data['calledAt']/1000),
+                                    $data['rawResponse'],
+                                    $data['responseCode']);
     }
 }
